@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        background-color: black;
+        margin: 0;
+        overflow: hidden;
+    }
+    .falling-text {
+        position: absolute;
+        color: white;
+        font-size: 24px;
+        font-family: monospace;
+        animation: drop 1.5s linear infinite;
+    }
+    @keyframes drop {
+        0% { transform: translateY(-50px); }
+        100% { transform: translateY(110vh); }
+    }
+</style>
+</head>
+<body>
+<script>
+    const text = "ZmluZCBteSBsb2NhdGlvbg==AlKhqeuyj90";
+    const count = 20; // number of falling texts
+
+    for (let i = 0; i < count; i++) {
+        let span = document.createElement('div');
+        span.className = 'falling-text';
+        span.textContent = text;
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDelay = (Math.random() * 1.5) + 's';
+        document.body.appendChild(span);
+    }
+</script>
+</body>
+</html>
